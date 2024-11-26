@@ -11,10 +11,11 @@ const App = () => {
 
   const calculateLove = async () => {
     try {
-      const response = await axios.post("https://lovecalculator-be.onrender.com", names);
+      const response = await axios.post("https://lovecalculator-be.onrender.com/calculate", names);
       setResult(response.data.message);
     } catch (error) {
       setResult("Error calculating love percentage.");
+      console.error("Error:", error.response?.data || error.message);
     }
   };
 
